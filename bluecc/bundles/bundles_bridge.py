@@ -20,6 +20,13 @@ class BundlesBridgeConnector(object):
         self.j = self.gateway.new_jvm_view()
         self.srv_rpc=None
         java_import(self.j, 'java.util.*')
+        java_import(self.j, 'com.bluecc.hubs.fund.*')
+        self.import_package('com.bluecc.hubs.EntityDataUtil')
 
         logger.info(f"connector version {self.version}")
+
+    def import_package(self, pkg):
+        java_import(self.j, pkg)
+
+bridge = BundlesBridgeConnector()
 

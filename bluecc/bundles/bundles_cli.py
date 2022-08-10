@@ -1,4 +1,4 @@
-from bluecc.bundles.bundles_bridge import BundlesBridgeConnector
+from bluecc.bundles.bundles_bridge import bridge
 
 
 class BundlesCli(object):
@@ -11,7 +11,7 @@ class BundlesCli(object):
         $ python -m bluecc.bundles.bundles_cli version
         :return:
         """
-        bridge = BundlesBridgeConnector()
+        # bridge = BundlesBridgeConnector()
         print(bridge.version)
         # print('1.0')
 
