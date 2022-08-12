@@ -49,3 +49,8 @@ allents:
     just extra
     just mods
 
+sl file:
+    env PYTHONPATH=`pwd`:`pwd`/pb:`pwd`/pb/ents streamlit run {{file}}
+
+home:
+    just sl Home.py

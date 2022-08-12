@@ -1,7 +1,4 @@
-import grpc
-import slugid
 import proto_disp_pb2
-import proto_disp_pb2_grpc
 from extra.common_note_pb2 import NoteDataData
 
 class Note(object):
@@ -18,6 +15,9 @@ class Note(object):
         ))
         return response
 
+    def create_note_with_args(self, **kwargs):
+        return self.create_note(NoteDataData(**kwargs))
+
     def get_note(self, bundle_id: str) -> NoteDataData:
         response = self.stub.Dispatch(proto_disp_pb2.DispParams(
             path='Note/getBundle',
@@ -27,6 +27,7 @@ class Note(object):
         note_msg = NoteDataData()
         response.result_object.Unpack(note_msg)
         return note_msg
+
 
 def for_notes(region_id: str) -> Note:
     from bluecc.bundles.connector import bundles_connector
