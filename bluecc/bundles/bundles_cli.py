@@ -7,7 +7,7 @@ from routines_pb2 import FixedPoint
 
 
 class BundlesCli(object):
-    def __int__(self):
+    def __init__(self):
         # self.bridge=BundlesBridgeConnector()
         pass
 
